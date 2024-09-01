@@ -1,0 +1,100 @@
+:host {
+  display: block;
+}
+
+.container {
+  width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(206, 200, 200);
+
+  .player-progress {
+    height: 10px;
+    position: relative;
+
+    .progress__bar {
+      width: 100%;
+      height: 10px;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .progress__line {
+      width: 0;
+      height: 10px;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      background-color: blue;
+    }
+
+    .progress__bg {
+      background-color: white;
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      width: 100%;
+      height: 10px;
+    }
+  }
+
+  .player-display {
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    .left-block {
+      width: 150px;
+      margin-right: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      user-select: none;
+
+      .left-block__top {
+        display: flex;
+        justify-content: center;
+
+        .play-music-btn {
+          margin: 0px 10px;
+        }
+      }
+
+      .progress-time {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .header-block {
+      flex: 1 1 auto;
+      display: flex;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .right-block {
+      width: 200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+  }
+}
+@media (max-width: 1000px) {
+  :host,
+  .container {
+    width: 100%;
+  }
+}

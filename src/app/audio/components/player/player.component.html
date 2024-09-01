@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="player-progress">
+    <div class="progress__bar" (click)="rewindAudio($event)"></div>
+    <div
+      class="progress__line"
+      [ngStyle]="{ width: timeLinePercent + '%' }"
+    ></div>
+    <div class="progress__bg"></div>
+  </div>
+
+  <div class="player-display">
+    <div class="left-block">
+      <div class="left-block__top">
+        <div class="play-music-btn">
+          <button *ngIf="isPlay" class="btn" (click)="playAudio()">Stop</button>
+          <button *ngIf="!isPlay" class="btn" (click)="playAudio()">
+            Play
+          </button>
+        </div>
+      </div>
+      <div class="progress-time">{{ timeLineCurrent }} / {{ timeLine }}</div>
+    </div>
+
+    <div *ngIf="isLoaded" class="header-block">
+      <div class="title">
+        <p>id: {{ id }}</p>
+        <p>title: {{ title }}</p>
+      </div>
+    </div>
+    <div *ngIf="!isLoaded" class="header-block">
+      <div class="title">Загрузка...</div>
+    </div>
+
+    <div class="right-block">
+      <div class="volume-block">
+        <input
+          (input)="setVolume($event)"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          value="0.5"
+          name="volume"
+          class="controls-volume"
+        />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container" *ngIf="!(errorAudioList$ | async); else isError">
+  <div class="audio-list-container">
+    <app-audio-list
+      [audioList]="(audioList$ | async)!"
+      (selectAudio)="selectAudio($event)"
+    ></app-audio-list>
+  </div>
+  <div class="player-container" *ngIf="selectedAudio">
+    <app-player [audioData]="selectedAudio"></app-player>
+  </div>
+</div>
+
+<ng-template #isError>
+  <div>
+    <p>{{ errorAudioList$ | async }}</p>
+  </div>
+</ng-template>

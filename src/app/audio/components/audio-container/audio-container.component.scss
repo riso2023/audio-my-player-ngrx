@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  
+  .audio-list-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: static;
+    z-index: 1;
+    padding-bottom: 70px;
+  }
+  
+  .player-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    
+    background-color: rgb(206, 200, 200);
+  }
+}
